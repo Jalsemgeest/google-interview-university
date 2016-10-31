@@ -29,6 +29,8 @@ const compressString = (str) => {
     count++;
   }
 
+  if (newStr.length > str.length) return str;
+
   return newStr;
 };
 
