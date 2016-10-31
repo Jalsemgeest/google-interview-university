@@ -12,29 +12,20 @@
 let str1 = 'funny';
 let str2 = 'fun';
 let str3 = 'cool';
+let str4 = 'bunny';
 
+// O(n)
 const isPermutation = (str1, str2) => {
   if (str1 === str2) return true;
+  if (str1.length === str2.length) return false;
+  const larger = str1.length > str2.length ? str1 : str2;
+  const smaller = str1.length < str2.length ? str1 : str2;
   let needle = -1;
-  // Check for str1 in str2
-  if (str1.length < str2.length) {
-    for (let i = 0; i < str2.length; i++) {
-      if (str1[++needle] === str2[i]) {
-        if (needle + 1 === str1.length) return true;
-      } else {
-        needle = -1;
-      }
-    }
-  }
-  needle = -1;
-  // Check for str2 in str1
-  if (str2.length < str1.length) {
-    for (let i = 0; i < str1.length; i++) {
-      if (str2[++needle] === str1[i]) {
-        if (needle + 1 === str2.length) return true;
-      } else {
-        needle = -1;
-      }
+  for (let i = 0; i < larger.length; i++) {
+    if (smaller[++needle] === larger[i]) {
+      if (needle + 1 === smaller.length) return true;
+    } else {
+      needle = -1;
     }
   }
   return false;
@@ -42,3 +33,4 @@ const isPermutation = (str1, str2) => {
 
 console.log(isPermutation(str1, str2));
 console.log(isPermutation(str1, str3));
+console.log(isPermutation(str1, str4));

@@ -13,6 +13,7 @@
 let str1 = 'not unique';
 let str2 = 'abcdefg';
 
+// O(n)
 const withoutStructure = (str) => {
   if (str.length > 26) return false;
   for (let i = 0; i < str.length; i++) {
